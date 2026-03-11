@@ -1,9 +1,9 @@
 {
-	"name": "Tabletop-data-factory",
+	"name": "tabletop-data-factory",
 	"author": "Adrián Vázquez",
 	"type": "module",
 	"scripts": {
-		"dev": "servor / index.html 1234 --reload"
+		"dev": "servor . index.html 1234 --reload"
 	},
 	"devDependencies": {
 		"oxfmt": "^0.37.0",
