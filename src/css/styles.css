@@ -1,106 +1,157 @@
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
   }
-  
-  /* 2. Remove default margin */
-  *:not(dialog) {
-    margin: 0;
-  }
-  
-  /* 3. Enable keyword animations */
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      interpolate-size: allow-keywords;
-    }
-  }
-  
-  body {
-    /* 4. Add accessible line-height */
-    line-height: 1.5;
-    /* 5. Improve text rendering */
-    -webkit-font-smoothing: antialiased;
-  }
-  
-  /* 6. Improve media defaults */
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  
-  /* 7. Inherit fonts for form controls */
-  input, button, textarea, select {
-    font: inherit;
-  }
-  
-  /* 8. Avoid text overflows */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  
-  /* 9. Improve line wrapping */
-  p {
-    text-wrap: pretty;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    text-wrap: balance;
-  }
-  
-  /*
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
     10. Create a root stacking context
   */
 
+@font-face {
+  font-display: swap;
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/src/assets/fonts/space-grotesk-v22-latin-regular.woff2") format("woff2");
+}
 
 @font-face {
-    font-display: swap; 
-    font-family: 'Space Grotesk';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/src/assets/fonts/space-grotesk-v22-latin-regular.woff2') format('woff2');
-  }
-
+  font-display: swap;
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/src/assets/fonts/ibm-plex-sans-v23-latin-regular.woff2") format("woff2");
+}
 
 @font-face {
-    font-display: swap; 
-    font-family: 'IBM Plex Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/src/assets/fonts/ibm-plex-sans-v23-latin-regular.woff2') format('woff2'); 
-  }
+  font-display: swap;
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/src/assets/fonts/geist-mono-v4-latin-regular.woff2") format("woff2");
+}
 
-  
-@font-face {
-    font-display: swap; 
-    font-family: 'Geist Mono';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/src/assets/fonts/geist-mono-v4-latin-regular.woff2') format('woff2'); 
-  }
+#root,
+#__next {
+  isolation: isolate;
+}
 
+:root {
+  --bg-color: #fffffe;
+  --font-color: #0f0f0e;
+  --red: #ff5a44;
+  --yellow: #ffe344;
+}
 
+body {
+  background-color: var(--bg-color);
+}
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0.5rem 0 0.5rem 0;
+  border-bottom: 2px solid #0f0f0e;
+}
 
-  #root, #__next {
-    isolation: isolate;
-  }
+.header__title {
+  font-family: "Space Grotesk", Helvetica, sans-serif;
+}
 
-  :root {
-    --bg-color: #BABABA;
-    --font-color: #242524;
-    --red: #FF5A44;
-  }
+.nav__menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem 0 1rem 0;
+  border-bottom: 2px solid #0f0f0e;
+}
 
-  body {
-    background-color: var(--bg-color);
-  }
+.nav__menu__list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
 
-  .header {
-    display: flex;
-    flex-direction: row;
-  }
+.navbar__item {
+  font-family: "IBM Plex Sans", Helvetica, sans-serif;
+  margin: 0 1rem 0 1rem;
+  border: 1px solid #0f0f0e;
+  box-shadow: 2px 2px 2px #0f0f0e;
+  padding: 0.25rem;
+}
 
-  .nav__menu__list {
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-  }
+a:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #0f0f0e;
+  transition: ease 0.4s;
+  background-color: #0f0f0e;
+  color: var(--bg-color);
+}
+
+.navbar__item:hover .card * {
+  font-family: "Geist Mono", Helvetica, sans-serif;
+}
