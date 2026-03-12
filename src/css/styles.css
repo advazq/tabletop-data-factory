@@ -100,15 +100,18 @@ h6 {
 }
 
 :root {
-  --bg-color: #fffffe;
-  --font-color: #0f0f0e;
-  --red: #ff5a44;
-  --yellow: #ffe344;
+  --bg-color: #fffaf1;
+  --font-color: #000100;
+  --red: #fc3aa4;
+  --yellow: #ffe040;
+  --violet: #4f4ffa;
 }
 
 body {
   background-color: var(--bg-color);
 }
+
+/* header */
 
 .header {
   display: flex;
@@ -122,12 +125,14 @@ body {
   font-family: "Space Grotesk", Helvetica, sans-serif;
 }
 
+/* Navigation bar */
+
 .nav__menu {
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 1rem 0 1rem 0;
-  border-bottom: 2px solid #0f0f0e;
+  border-bottom: 1px solid #0f0f0e;
 }
 
 .nav__menu__list {
@@ -140,18 +145,44 @@ body {
   font-family: "IBM Plex Sans", Helvetica, sans-serif;
   margin: 0 1rem 0 1rem;
   border: 1px solid #0f0f0e;
-  box-shadow: 2px 2px 2px #0f0f0e;
-  padding: 0.25rem;
+  box-shadow: 0px 2px 2px #888;
+  padding: 0.33rem;
 }
 
 a:hover {
   cursor: pointer;
-  box-shadow: 1px 1px 1px #0f0f0e;
-  transition: ease 0.4s;
-  background-color: #0f0f0e;
-  color: var(--bg-color);
+  box-shadow: 0px 4px 4px #888;
+  transition: ease 0.3s;
+  background-color: var(--yellow);
+  color: var(--font-color);
 }
 
 .navbar__item:hover .card * {
   font-family: "Geist Mono", Helvetica, sans-serif;
+}
+
+/* bento-grid & bento-cards */
+
+.wrapper {
+  border: 1px solid #0f0f0e;
+  border-collapse: collapse;
+}
+
+.bento-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+.card * {
+  font-family: "Geist Mono", Helvetica, sans-serif;
+}
+
+.card {
+  border-collapse: separate;
+  border: 1px solid #0f0f0e;
+  padding: 2rem;
+}
+
+.card-title {
+  font-weight: 400;
 }
