@@ -100,15 +100,18 @@ h6 {
 }
 
 :root {
-  --bg-color: #fffaf1;
-  --font-color: #000100;
   --red: #fc3aa4;
   --yellow: #ffe040;
-  --violet: #4f4ffa;
+  --violet: #e0b0ff;
+  --green: #afe1af;
+  --orange: #ffb98a;
+  --black: #222222;
+  --grey: #b8b8b9;
+  --white: #f5f5f3;
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: var(--white);
 }
 
 /* header */
@@ -117,12 +120,14 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 0.5rem 0 0.5rem 0;
-  border-bottom: 2px solid #0f0f0e;
+  padding: 1rem 0 1rem 0;
+  border-bottom: 2px solid var(--black);
 }
 
 .header__title {
   font-family: "Space Grotesk", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: xx-large;
 }
 
 /* Navigation bar */
@@ -132,7 +137,7 @@ body {
   flex-direction: row;
   justify-content: center;
   padding: 1rem 0 1rem 0;
-  border-bottom: 1px solid #0f0f0e;
+  border-bottom: 2px solid var(--black);
 }
 
 .nav__menu__list {
@@ -143,8 +148,9 @@ body {
 
 .navbar__item {
   font-family: "IBM Plex Sans", Helvetica, sans-serif;
+  font-size: medium;
   margin: 0 1rem 0 1rem;
-  border: 1px solid #0f0f0e;
+  border: 0.5px solid #0f0f0e;
   box-shadow: 0px 2px 2px #888;
   padding: 0.33rem;
 }
@@ -153,7 +159,7 @@ a:hover {
   cursor: pointer;
   box-shadow: 0px 4px 4px #888;
   transition: ease 0.3s;
-  background-color: var(--yellow);
+  background-color: var(--orange);
   color: var(--font-color);
 }
 
@@ -162,15 +168,10 @@ a:hover {
 }
 
 /* bento-grid & bento-cards */
-
-.wrapper {
-  border: 1px solid #0f0f0e;
-  border-collapse: collapse;
-}
-
 .bento-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  border-collapse: separate;
 }
 
 .card * {
@@ -178,11 +179,51 @@ a:hover {
 }
 
 .card {
-  border-collapse: separate;
-  border: 1px solid #0f0f0e;
+  border-collapse: collapse;
   padding: 2rem;
+  border: 0.5px solid var(--black);
 }
 
+/* corrección de border-collapse*/
+
+.nav__menu + .card {
+  border-top: none;
+}
+
+.card + .card {
+  border-left: none;
+  border-top: none;
+}
+
+.card-header {
+  margin: 0 0.33rem 0 0.33rem;
+}
+/* card elements */
 .card-title {
   font-weight: 400;
+  font-size: large;
+  border: 0.5px solid #0f0f0e;
+  padding: 0.33rem;
+}
+
+.card-description {
+  font-size: small;
+  padding: 0.33em 0;
+}
+
+.card-title:hover {
+  cursor: pointer;
+  transition: ease 0.3s;
+  background-color: var(--orange);
+  color: var(--font-color);
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-insight {
+  font-size: small;
 }
